@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joanna's Studio — Original Acrylic Pour Paintings</title>
+  <meta name="description" content="Original acrylic pour paintings by Joanna. Each piece is unique — shaped by colour, gravity, and instinct. Available to collectors worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal:    #5b8fa0;
+      --teal-lt: #d6eaf0;
+      --ochre:   #b8874a;
+      --mauve:   #7a6090;
+      --sage:    #6a9478;
+      --cream:   #f5f1ea;
+      --stone:   #e8e2d8;
+      --ink:     #1e1a24;
+      --mid:     rgba(30,26,36,0.45);
+      --faint:   rgba(30,26,36,0.08);
+      --radius:  10px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PALETTE STRIPE ── */
+    .palette-stripe {
+      display: flex;
+      height: 5px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .palette-stripe span { flex: 1; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 5px;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--faint);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border: 1px solid rgba(30,26,36,0.28);
+      border-radius: 40px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav-cta:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .hero-text {
+      padding: 64px 56px 64px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--teal);
+    }
+    .hero-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--mid);
+      max-width: 380px;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      background: var(--teal);
+      border: 1px solid var(--teal);
+      border-radius: 40px;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #4a7a8c; border-color: #4a7a8c; }
+    .btn-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 13px 24px;
+      background: transparent;
+      border: 1px solid rgba(30,26,36,0.22);
+      border-radius: 40px;
+      color: var(--mid);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .hero-image:hover img { transform: scale(1.03); }
+    .hero-image-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 14px 20px;
+      background: rgba(245,241,234,0.9);
+      border-top: 1px solid var(--faint);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hero-image-caption span { font-size: 12px; color: var(--mid); letter-spacing: 0.04em; }
+    .hero-image-caption .avail { color: var(--teal); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── SECTION INTRO ── */
+    .section-intro {
+      padding: 64px 40px 32px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-top: 1px solid var(--faint);
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .section-count {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ── FILTER ── */
+    .filters {
+      padding: 0 40px 28px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 40px;
+      border: 1px solid rgba(30,26,36,0.18);
+      background: transparent;
+      color: var(--mid);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .chip:hover { border-color: var(--ink); color: var(--ink); }
+    .chip.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+    /* ── GRID ── */
+    .grid {
+      padding: 0 40px 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--faint);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(30,26,36,0.08);
+    }
+    .card.featured { grid-column: span 2; }
+
+    .card-thumb {
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+    .card.featured .card-thumb { aspect-ratio: 16 / 7; }
+    .card-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-thumb img { transform: scale(1.04); }
+
+    .card-body { padding: 14px 16px 16px; }
+    .card-number {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .card-meta {
+      font-size: 11px;
+      color: var(--mid);
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-price {
+      font-size: 13px;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+    }
+    .badge {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+    .badge-available {
+      background: rgba(91,143,160,0.1);
+      color: #3d7080;
+      border: 1px solid rgba(91,143,160,0.25);
+    }
+    .badge-sold {
+      background: rgba(30,26,36,0.04);
+      color: rgba(30,26,36,0.3);
+      border: 1px solid rgba(30,26,36,0.1);
+    }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--faint); margin: 0 40px; }
+
+    /* ── COMMISSIONS ── */
+    .commissions {
+      padding: 64px 40px 72px;
+    }
+    .commissions-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .commissions-sub {
+      font-size: 14px;
+      color: var(--mid);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .step {
+      background: var(--stone);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid rgba(30,26,36,0.06);
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--teal);
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+    .step-title {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .step-body {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACT / ABOUT ── */
+    .about {
+      padding: 64px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      border-top: 1px solid var(--faint);
+    }
+    .about-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .about-body {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--mid);
+      margin-bottom: 32px;
+    }
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .contact-body {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--mid);
+      margin-bottom: 28px;
+    }
+    .contact-email {
+      font-size: 16px;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(91,143,160,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .contact-email:hover { border-color: var(--teal); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--stone);
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--faint);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--mid);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(30,26,36,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,18,24,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 860px;
+      width: 100%;
+      background: var(--cream);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .lightbox-img { width: 100%; display: block; max-height: 70vh; object-fit: contain; background: var(--stone); }
+    .lightbox-body { padding: 20px 24px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .lightbox-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+    .lightbox-meta { font-size: 12px; color: var(--mid); margin-top: 4px; }
+    .lightbox-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      background: rgba(245,241,234,0.9);
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink);
+    }
+    .lightbox-inquire {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image { aspect-ratio: 4/3; }
+      .hero-text { padding: 40px 20px 32px; }
+      .hero-title { font-size: 38px; }
+      .section-intro, .filters, hr { padding-left: 20px; padding-right: 20px; }
+      .grid { grid-template-columns: 1fr; padding: 0 20px 60px; }
+      .card.featured { grid-column: span 1; }
+      .card.featured .card-thumb { aspect-ratio: 4/3; }
+      .steps { grid-template-columns: 1fr; }
+      .commissions, .about { padding-left: 20px; padding-right: 20px; }
+      .about { grid-template-columns: 1fr; gap: 40px; }
+      footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Colour stripe drawn from the paintings -->
+  <div class="palette-stripe" aria-hidden="true">
+    <span style="background:#5b8fa0;"></span>
+    <span style="background:#8ecad8;"></span>
+    <span style="background:#b8874a;"></span>
+    <span style="background:#c97830;"></span>
+    <span style="background:#7a6090;"></span>
+    <span style="background:#6a9478;"></span>
+    <span style="background:#c88070;"></span>
+    <span style="background:#3a4840;"></span>
+  </div>
+
+  <nav>
+    <a href="#" class="nav-logo">Joanna's Studio</a>
+    <ul class="nav-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#commissions">Commissions</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:YOUR_EMAIL_HERE" class="nav-cta">Inquire</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Original acrylic pour paintings</p>
+      <h1 class="hero-title">Painting with<br><em>fluid &amp; chance</em></h1>
+      <p class="hero-body">Each piece is shaped by colour, gravity, and instinct. No two are ever alike — every painting is a single unrepeatable moment, made permanent on canvas.</p>
+      <div class="hero-actions">
+        <a href="#collection" class="btn-primary">Browse collection</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="1.jpeg" alt="Painting 1 — teal burst acrylic pour">
+      <div class="hero-image-caption">
+        <span>Acrylic pour on canvas · Original</span>
+        <span class="avail">Available</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <div id="collection" class="section-intro">
+    <h2 class="section-heading">Collection</h2>
+    <span class="section-count">6 works</span>
+  </div>
+
+  <div class="filters">
+    <button class="chip active" onclick="filterCards(this,'all')">All works</button>
+    <button class="chip" onclick="filterCards(this,'available')">Available</button>
+    <button class="chip" onclick="filterCards(this,'warm')">Warm tones</button>
+    <button class="chip" onclick="filterCards(this,'cool')">Cool tones</button>
+  </div>
+
+  <div class="grid">
+
+    <div class="card featured" data-tags="available warm" onclick="openLightbox('2.jpeg','Painting 2','Acrylic pour on canvas · Large format','available')">
+      <div class="card-thumb">
+        <img src="2.jpeg" alt="Painting 2 — ochre and mauve" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-number">No. 2</p>
+        <h3 class="card-title">Painting 2</h3>
+        <p class="card-meta">Acrylic pour on canvas · Large format</p>
+        <div class="card-footer">
+          <span class="card-price">Inquire for price</span>
+          <span class="badge badge-available">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="available warm" onclick="openLightbox('4.jpeg','Painting 4','Acrylic pour on canvas','available')">
+      <div class="card-thumb">
+        <img src="4.jpeg" alt="Painting 4 — green and pink" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-number">No. 4</p>
+        <h3 class="card-title">Painting 4</h3>
+        <p class="card-meta">Acrylic pour on canvas</p>
+        <div class="card-footer">
+          <span class="card-price">Inquire for price</span>
+          <span class="badge badge-available">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('5.jpeg','Painting 5','Acrylic pour on canvas','available')">
+      <div class="card-thumb">
+        <img src="5.jpeg" alt="Painting 5 — orange and blue" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-number">No. 5</p>
+        <h3 class="card-title">Painting 5</h3>
+        <p class="card-meta">Acrylic pour on canvas</p>
+        <div class="card-footer">
+          <span class="card-price">Inquire for price</span>
+          <span class="badge badge-available">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="available cool" onclick="openLightbox('3.jpeg','Painting 3','Acrylic pour on canvas','available')">
+      <div class="card-thumb">
+        <img src="3.jpeg" alt="Painting 3 — mauve and blue" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-number">No. 3</p>
+        <h3 class="card-title">Painting 3</h3>
+        <p class="card-meta">Acrylic pour on canvas</p>
+        <div class="card-footer">
+          <span class="card-price">Inquire for price</span>
+          <span class="badge badge-available">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="sold cool" onclick="openLightbox('6.jpeg','Storm','Acrylic pour on canvas','sold')">
+      <div class="card-thumb">
+        <img src="6.jpeg" alt="Painting 6 — Storm" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-number">No. 6</p>
+        <h3 class="card-title">Storm</h3>
+        <p class="card-meta">Acrylic pour on canvas</p>
+        <div class="card-footer">
+          <span class="card-price">—</span>
+          <span class="badge badge-sold">Sold</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="available cool" onclick="openLightbox('1.jpeg','Painting 1','Acrylic pour on canvas','available')">
+      <div class="card-thumb">
+        <img src="1.jpeg" alt="Painting 1 — teal burst" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-number">No. 1</p>
+        <h3 class="card-title">Painting 1</h3>
+        <p class="card-meta">Acrylic pour on canvas</p>
+        <div class="card-footer">
+          <span class="card-price">Inquire for price</span>
+          <span class="badge badge-available">Available</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- COMMISSIONS -->
+  <section id="commissions" class="commissions">
+    <h2 class="commissions-heading">Commissions</h2>
+    <p class="commissions-sub">Interested in a bespoke piece for your home or office? I take a small number of commissions each year. You choose the palette and size — the rest is left to chance.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <p class="step-title">Choose your palette</p>
+        <p class="step-body">Warm, cool, or mixed — you guide the colour story. Share references or simply describe the feeling you're after.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <p class="step-title">Pick your size</p>
+        <p class="step-body">From intimate studies to large statement pieces. I'll advise on what works well for your space.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <p class="step-title">Receive your piece</p>
+        <p class="step-body">Shipped anywhere, carefully packaged. Each piece arrives ready to hang, signed on the back.</p>
+      </div>
+    </div>
+    <a href="mailto:YOUR_EMAIL_HERE" class="btn-primary">Start a conversation</a>
+  </section>
+
+  <hr>
+
+  <!-- ABOUT + CONTACT -->
+  <section class="about" id="about">
+    <div>
+      <h2 class="about-heading">About</h2>
+      <p class="about-body">
+        I work with acrylic pour — a technique where paint is mixed with fluid medium and poured, tilted, and coaxed across the canvas. Gravity and chemistry take over from there. The process is equal parts intention and surrender, and every result is genuinely one of a kind.
+        <br><br>
+        <!-- Add your own story here — where you're based, how you got started, what inspires you. -->
+        Based in the UK. Available for commissions and collector inquiries worldwide.
+      </p>
+    </div>
+    <div id="contact">
+      <h2 class="contact-heading">Get in touch</h2>
+      <p class="contact-body">Whether you're interested in a piece from the collection, a commission, or just want to know more — I'd love to hear from you.</p>
+      <a href="mailto:YOUR_EMAIL_HERE" class="contact-email">YOUR_EMAIL_HERE</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Joanna's Studio</span>
+    <ul class="footer-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#commissions">Commissions</a></li>
+      <li><a href="mailto:YOUR_EMAIL_HERE">Contact</a></li>
+    </ul>
+    <span class="footer-copy">© 2024 Joanna's Studio</span>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img class="lightbox-img" id="lb-img" src="" alt="">
+      <div class="lightbox-body">
+        <div>
+          <div class="lightbox-title" id="lb-title"></div>
+          <div class="lightbox-meta" id="lb-meta"></div>
+        </div>
+        <a id="lb-btn" href="mailto:YOUR_EMAIL_HERE" class="lightbox-inquire">Inquire about this piece</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Filter
+    function filterCards(btn, tag) {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.card').forEach(card => {
+        const tags = card.dataset.tags || '';
+        card.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
+      });
+    }
+
+    // Lightbox
+    function openLightbox(src, title, meta, status) {
+      document.getElementById('lb-img').src = src;
+      document.getElementById('lb-title').textContent = title;
+      document.getElementById('lb-meta').textContent = meta;
+      const btn = document.getElementById('lb-btn');
+      if (status === 'sold') {
+        btn.textContent = 'This piece is sold';
+        btn.style.background = '#aaa';
+        btn.style.pointerEvents = 'none';
+      } else {
+        btn.textContent = 'Inquire about this piece';
+        btn.style.background = '';
+        btn.style.pointerEvents = '';
+      }
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeLightboxOnBg(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
+</body>
+</html>

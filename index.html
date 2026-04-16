@@ -17,10 +17,12 @@
     .palette-stripe span{flex:1;}
     nav{position:sticky;top:5px;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;background:var(--cream);border-bottom:1px solid var(--faint);}
     .nav-left{display:flex;align-items:center;gap:14px;}
-    .artist-avatar{width:56px;height:56px;border-radius:50%;overflow:hidden;border:2px solid rgba(91,143,160,0.35);flex-shrink:0;box-shadow:0 2px 12px rgba(30,26,36,0.12);}
-    .artist-avatar img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
     .nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;}
     .nav-tagline{font-size:11px;color:var(--mid);letter-spacing:0.06em;margin-top:1px;}
+    .hero-artist{display:flex;align-items:flex-end;gap:20px;margin-bottom:28px;}
+    .hero-artist-photo{border-radius:50%;overflow:hidden;border:3px solid rgba(91,143,160,0.35);flex-shrink:0;box-shadow:0 4px 24px rgba(30,26,36,0.15);}
+    .hero-artist-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+    .hero-artist-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;color:var(--mid);letter-spacing:0.04em;padding-bottom:4px;}
     .nav-links{display:flex;gap:32px;list-style:none;}
     .nav-links a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s;}
     .nav-links a:hover{color:var(--ink);}
@@ -101,11 +103,7 @@
   </div>
   <nav>
     <div class="nav-left">
-      <div class="artist-avatar"><img src="artist.jpeg" alt="Joanna"></div>
-      <div>
-        <a href="#" class="nav-logo">Joanna's Studio</a>
-        <div class="nav-tagline">Original paintings · UK</div>
-      </div>
+      <a href="#" class="nav-logo">Joanna's Studio</a>
     </div>
     <ul class="nav-links">
       <li><a href="#collection">Collection</a></li>
@@ -117,9 +115,15 @@
   </nav>
   <section class="hero">
     <div class="hero-text">
-      <p class="hero-eyebrow">Original paintings</p>
-      <h1 class="hero-title">Painting with<br><em>fluid &amp; chance</em></h1>
-      <p class="hero-body">Each piece is shaped by colour, gravity, and instinct. No two are ever alike — every painting is a single unrepeatable moment, made permanent on canvas.</p>
+      <div class="hero-artist">
+        <div class="hero-artist-photo" style="width:calc(30% - 10px);aspect-ratio:1/1;">
+          <img src="artist.jpeg" alt="Joanna">
+        </div>
+        <span class="hero-artist-name">Joanna</span>
+      </div>
+      <p class="hero-eyebrow">Original Acrylic Paintings</p>
+      <h1 class="hero-title">Painting by<br><em>Feeling</em></h1>
+      <p class="hero-body">Experience raw emotion transformed into texture, colour, and movement — where darkness softens, and humans reveal themselves in mysterious ways. Each painting is an unfiltered conversation with the artist and reveals a beauty like no other.</p>
       <div class="hero-actions">
         <a href="#collection" class="btn-primary">Browse collection</a>
         <a href="#contact" class="btn-ghost">Get in touch</a>
@@ -142,6 +146,7 @@
     <button class="chip" onclick="filterCards(this,'sold')">Sold</button>
   </div>
   <div class="grid" id="gallery">
+    <div class="card" data-tags="available cool" style="grid-column:span 3;" onclick="openLightbox('7.jpeg','Painting 7','Original · Acrylic on canvas','available')"><div class="card-thumb" style="aspect-ratio:16/6;overflow:hidden;"><img src="7.jpeg" alt="Painting 7" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transform:rotate(90deg) scale(1.8);transform-origin:center center;"></div><div class="card-body"><p class="card-number">No. 7</p><h3 class="card-title">Painting 7</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
     <div class="card featured" data-tags="available cool" onclick="openLightbox('1.jpeg','Painting 1','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="1.jpeg" alt="Painting 1" loading="lazy"></div><div class="card-body"><p class="card-number">No. 1</p><h3 class="card-title">Painting 1</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
     <div class="card" data-tags="available warm" onclick="openLightbox('2.jpeg','Painting 2','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="2.jpeg" alt="Painting 2" loading="lazy"></div><div class="card-body"><p class="card-number">No. 2</p><h3 class="card-title">Painting 2</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
     <div class="card" data-tags="available cool" onclick="openLightbox('3.jpeg','Painting 3','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="3.jpeg" alt="Painting 3" loading="lazy"></div><div class="card-body"><p class="card-number">No. 3</p><h3 class="card-title">Painting 3</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>

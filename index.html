@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--teal:#5b8fa0;--ochre:#b8874a;--cream:#f5f1ea;--stone:#e8e2d8;--ink:#1e1a24;--mid:rgba(30,26,36,0.45);--faint:rgba(30,26,36,0.08);--radius:10px;}
+    :root{--teal:#5b8fa0;--cream:#f5f1ea;--stone:#e8e2d8;--ink:#1e1a24;--mid:rgba(30,26,36,0.45);--faint:rgba(30,26,36,0.08);--radius:10px;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);font-weight:300;-webkit-font-smoothing:antialiased;}
@@ -19,11 +19,11 @@
     .nav-left{display:flex;align-items:center;gap:14px;}
     .artist-avatar{width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid rgba(91,143,160,0.3);flex-shrink:0;}
     .artist-avatar img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
-    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;letter-spacing:0.02em;color:var(--ink);text-decoration:none;}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;}
     .nav-links{display:flex;gap:32px;list-style:none;}
     .nav-links a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s;}
     .nav-links a:hover{color:var(--ink);}
-    .nav-cta{font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;padding:9px 20px;border:1px solid rgba(30,26,36,0.28);border-radius:40px;background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;transition:background 0.2s,color 0.2s;}
+    .nav-cta{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:9px 20px;border:1px solid rgba(30,26,36,0.28);border-radius:40px;background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;transition:background 0.2s,color 0.2s;}
     .nav-cta:hover{background:var(--ink);color:var(--cream);}
     .hero{display:grid;grid-template-columns:1fr 1fr;min-height:520px;}
     .hero-text{padding:64px 56px 64px 40px;display:flex;flex-direction:column;justify-content:center;}
@@ -32,13 +32,10 @@
     .hero-title em{font-style:italic;color:var(--teal);}
     .hero-body{font-size:15px;line-height:1.9;color:var(--mid);max-width:380px;margin-bottom:40px;}
     .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
-    .btn-primary{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 28px;background:var(--teal);border:1px solid var(--teal);border-radius:40px;color:#fff;cursor:pointer;text-decoration:none;transition:background 0.2s;}
-    .btn-primary:hover{background:#4a7a8c;}
-    .btn-ghost{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 24px;background:transparent;border:1px solid rgba(30,26,36,0.22);border-radius:40px;color:var(--mid);cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;}
-    .btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+    .btn-primary{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 28px;background:var(--teal);border:1px solid var(--teal);border-radius:40px;color:#fff;cursor:pointer;text-decoration:none;}
+    .btn-ghost{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 24px;background:transparent;border:1px solid rgba(30,26,36,0.22);border-radius:40px;color:var(--mid);cursor:pointer;text-decoration:none;}
     .hero-image{position:relative;overflow:hidden;}
-    .hero-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
-    .hero-image:hover img{transform:scale(1.03);}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block;}
     .hero-caption{position:absolute;bottom:0;left:0;right:0;padding:14px 20px;background:rgba(245,241,234,0.9);border-top:1px solid var(--faint);display:flex;justify-content:space-between;align-items:center;}
     .hero-caption span{font-size:12px;color:var(--mid);}
     .hero-caption .avail{color:var(--teal);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
@@ -55,7 +52,7 @@
     .card.featured{grid-column:span 2;}
     .card-thumb{overflow:hidden;aspect-ratio:4/3;}
     .card.featured .card-thumb{aspect-ratio:16/7;}
-    .card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;}
+    .card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
     .card:hover .card-thumb img{transform:scale(1.04);}
     .card-body{padding:14px 16px 16px;}
     .card-number{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:4px;}
@@ -82,7 +79,7 @@
     footer{background:var(--stone);padding:24px 40px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--faint);}
     .footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--mid);}
     .footer-links{display:flex;gap:24px;list-style:none;}
-    .footer-links a{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s;}
+    .footer-links a{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;}
     .footer-links a:hover{color:var(--teal);}
     .footer-copy{font-size:11px;color:rgba(30,26,36,0.25);}
     .lightbox{display:none;position:fixed;inset:0;background:rgba(20,18,24,0.92);z-index:999;align-items:center;justify-content:center;padding:32px;}
@@ -101,7 +98,6 @@
   <div class="palette-stripe" aria-hidden="true">
     <span style="background:#5b8fa0;"></span><span style="background:#8ecad8;"></span><span style="background:#b8874a;"></span><span style="background:#c97830;"></span><span style="background:#7a6090;"></span><span style="background:#6a9478;"></span><span style="background:#c88070;"></span><span style="background:#3a4840;"></span>
   </div>
-
   <nav>
     <div class="nav-left">
       <div class="artist-avatar"><img src="artist.jpeg" alt="Joanna"></div>
@@ -115,7 +111,6 @@
     </ul>
     <a href="mailto:shenlongart369@gmail.com" class="nav-cta">Inquire</a>
   </nav>
-
   <section class="hero">
     <div class="hero-text">
       <p class="hero-eyebrow">Original paintings</p>
@@ -127,16 +122,14 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="35.jpeg" alt="Featured painting">
+      <img src="1.jpeg" alt="Featured painting">
       <div class="hero-caption"><span>Original · Acrylic on canvas</span><span class="avail">Available</span></div>
     </div>
   </section>
-
   <div id="collection" class="section-intro">
     <h2 class="section-heading">Collection</h2>
     <span class="section-count" id="count-label">35 works</span>
   </div>
-
   <div class="filters">
     <button class="chip active" onclick="filterCards(this,'all')">All works</button>
     <button class="chip" onclick="filterCards(this,'available')">Available</button>
@@ -144,12 +137,44 @@
     <button class="chip" onclick="filterCards(this,'cool')">Cool tones</button>
     <button class="chip" onclick="filterCards(this,'sold')">Sold</button>
   </div>
-
   <div class="grid" id="gallery">
+    <div class="card featured" data-tags="available cool" onclick="openLightbox('1.jpeg','Painting 1','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="1.jpeg" alt="Painting 1" loading="lazy"></div><div class="card-body"><p class="card-number">No. 1</p><h3 class="card-title">Painting 1</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('2.jpeg','Painting 2','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="2.jpeg" alt="Painting 2" loading="lazy"></div><div class="card-body"><p class="card-number">No. 2</p><h3 class="card-title">Painting 2</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool" onclick="openLightbox('3.jpeg','Painting 3','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="3.jpeg" alt="Painting 3" loading="lazy"></div><div class="card-body"><p class="card-number">No. 3</p><h3 class="card-title">Painting 3</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('4.jpeg','Painting 4','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="4.jpeg" alt="Painting 4" loading="lazy"></div><div class="card-body"><p class="card-number">No. 4</p><h3 class="card-title">Painting 4</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('5.jpeg','Painting 5','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="5.jpeg" alt="Painting 5" loading="lazy"></div><div class="card-body"><p class="card-number">No. 5</p><h3 class="card-title">Painting 5</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="sold cool" onclick="openLightbox('6.jpeg','Storm','Original · Acrylic on canvas','sold')"><div class="card-thumb"><img src="6.jpeg" alt="Storm" loading="lazy"></div><div class="card-body"><p class="card-number">No. 6</p><h3 class="card-title">Storm</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">&#8212;</span><span class="badge badge-sold">Sold</span></div></div></div>
+    <div class="card" data-tags="available cool" onclick="openLightbox('7.jpeg','Painting 7','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="7.jpeg" alt="Painting 7" loading="lazy"></div><div class="card-body"><p class="card-number">No. 7</p><h3 class="card-title">Painting 7</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('8.jpeg','Painting 8','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="8.jpeg" alt="Painting 8" loading="lazy"></div><div class="card-body"><p class="card-number">No. 8</p><h3 class="card-title">Painting 8</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('9.jpeg','Painting 9','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="9.jpeg" alt="Painting 9" loading="lazy"></div><div class="card-body"><p class="card-number">No. 9</p><h3 class="card-title">Painting 9</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('10.jpeg','Painting 10','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="10.jpeg" alt="Painting 10" loading="lazy"></div><div class="card-body"><p class="card-number">No. 10</p><h3 class="card-title">Painting 10</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('11.jpeg','Painting 11','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="11.jpeg" alt="Painting 11" loading="lazy"></div><div class="card-body"><p class="card-number">No. 11</p><h3 class="card-title">Painting 11</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('12.jpeg','Painting 12','Original · Mixed media','available')"><div class="card-thumb"><img src="12.jpeg" alt="Painting 12" loading="lazy"></div><div class="card-body"><p class="card-number">No. 12</p><h3 class="card-title">Painting 12</h3><p class="card-meta">Original · Mixed media</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('13.jpeg','Painting 13','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="13.jpeg" alt="Painting 13" loading="lazy"></div><div class="card-body"><p class="card-number">No. 13</p><h3 class="card-title">Painting 13</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('14.jpeg','Painting 14','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="14.jpeg" alt="Painting 14" loading="lazy"></div><div class="card-body"><p class="card-number">No. 14</p><h3 class="card-title">Painting 14</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm cool" onclick="openLightbox('15.jpeg','Painting 15','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="15.jpeg" alt="Painting 15" loading="lazy"></div><div class="card-body"><p class="card-number">No. 15</p><h3 class="card-title">Painting 15</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool" onclick="openLightbox('16.jpeg','Painting 16','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="16.jpeg" alt="Painting 16" loading="lazy"></div><div class="card-body"><p class="card-number">No. 16</p><h3 class="card-title">Painting 16</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('17.jpeg','Painting 17','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="17.jpeg" alt="Painting 17" loading="lazy"></div><div class="card-body"><p class="card-number">No. 17</p><h3 class="card-title">Painting 17</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool" onclick="openLightbox('18.jpeg','Painting 18','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="18.jpeg" alt="Painting 18" loading="lazy"></div><div class="card-body"><p class="card-number">No. 18</p><h3 class="card-title">Painting 18</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('19.jpeg','Painting 19','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="19.jpeg" alt="Painting 19" loading="lazy"></div><div class="card-body"><p class="card-number">No. 19</p><h3 class="card-title">Painting 19</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm cool" onclick="openLightbox('20.jpeg','Painting 20','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="20.jpeg" alt="Painting 20" loading="lazy"></div><div class="card-body"><p class="card-number">No. 20</p><h3 class="card-title">Painting 20</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('21.jpeg','Painting 21','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="21.jpeg" alt="Painting 21" loading="lazy"></div><div class="card-body"><p class="card-number">No. 21</p><h3 class="card-title">Painting 21</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('22.jpeg','Painting 22','Original · Mixed media on board','available')"><div class="card-thumb"><img src="22.jpeg" alt="Painting 22" loading="lazy"></div><div class="card-body"><p class="card-number">No. 22</p><h3 class="card-title">Painting 22</h3><p class="card-meta">Original · Mixed media on board</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('23.jpeg','Painting 23','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="23.jpeg" alt="Painting 23" loading="lazy"></div><div class="card-body"><p class="card-number">No. 23</p><h3 class="card-title">Painting 23</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('24.jpeg','Painting 24','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="24.jpeg" alt="Painting 24" loading="lazy"></div><div class="card-body"><p class="card-number">No. 24</p><h3 class="card-title">Painting 24</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool" onclick="openLightbox('25.jpeg','Painting 25','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="25.jpeg" alt="Painting 25" loading="lazy"></div><div class="card-body"><p class="card-number">No. 25</p><h3 class="card-title">Painting 25</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool" onclick="openLightbox('26.jpeg','Painting 26','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="26.jpeg" alt="Painting 26" loading="lazy"></div><div class="card-body"><p class="card-number">No. 26</p><h3 class="card-title">Painting 26</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm cool" onclick="openLightbox('27.jpeg','Painting 27','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="27.jpeg" alt="Painting 27" loading="lazy"></div><div class="card-body"><p class="card-number">No. 27</p><h3 class="card-title">Painting 27</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('28.jpeg','Painting 28','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="28.jpeg" alt="Painting 28" loading="lazy"></div><div class="card-body"><p class="card-number">No. 28</p><h3 class="card-title">Painting 28</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('29.jpeg','Painting 29','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="29.jpeg" alt="Painting 29" loading="lazy"></div><div class="card-body"><p class="card-number">No. 29</p><h3 class="card-title">Painting 29</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('30.jpeg','Painting 30','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="30.jpeg" alt="Painting 30" loading="lazy"></div><div class="card-body"><p class="card-number">No. 30</p><h3 class="card-title">Painting 30</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('31.jpeg','Painting 31','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="31.jpeg" alt="Painting 31" loading="lazy"></div><div class="card-body"><p class="card-number">No. 31</p><h3 class="card-title">Painting 31</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('32.jpeg','Painting 32','Original · Mixed media','available')"><div class="card-thumb"><img src="32.jpeg" alt="Painting 32" loading="lazy"></div><div class="card-body"><p class="card-number">No. 32</p><h3 class="card-title">Painting 32</h3><p class="card-meta">Original · Mixed media</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available warm" onclick="openLightbox('33.jpeg','Painting 33','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="33.jpeg" alt="Painting 33" loading="lazy"></div><div class="card-body"><p class="card-number">No. 33</p><h3 class="card-title">Painting 33</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('34.jpeg','Painting 34','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="34.jpeg" alt="Painting 34" loading="lazy"></div><div class="card-body"><p class="card-number">No. 34</p><h3 class="card-title">Painting 34</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
+    <div class="card" data-tags="available cool warm" onclick="openLightbox('35.jpeg','Painting 35','Original · Acrylic on canvas','available')"><div class="card-thumb"><img src="35.jpeg" alt="Painting 35" loading="lazy"></div><div class="card-body"><p class="card-number">No. 35</p><h3 class="card-title">Painting 35</h3><p class="card-meta">Original · Acrylic on canvas</p><div class="card-footer"><span class="card-price">Inquire for price</span><span class="badge badge-available">Available</span></div></div></div>
   </div>
-
   <hr>
-
   <section id="commissions" class="commissions">
     <h2 class="commissions-heading">Commissions</h2>
     <p class="commissions-sub">Interested in a bespoke piece for your home or office? I take a small number of commissions each year. You choose the palette and size — the rest is left to chance.</p>
@@ -160,7 +185,6 @@
     </div>
     <a href="mailto:shenlongart369@gmail.com" class="btn-primary">Start a conversation</a>
   </section>
-
   <section class="about" id="about">
     <div>
       <h2 class="about-heading">About</h2>
@@ -172,7 +196,6 @@
       <a href="mailto:shenlongart369@gmail.com" class="contact-email">shenlongart369@gmail.com</a>
     </div>
   </section>
-
   <footer>
     <span class="footer-logo">Joanna's Studio</span>
     <ul class="footer-links">
@@ -182,7 +205,6 @@
     </ul>
     <span class="footer-copy">&copy; 2024 Joanna's Studio</span>
   </footer>
-
   <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
     <div class="lightbox-inner">
       <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
@@ -193,7 +215,6 @@
       </div>
     </div>
   </div>
-
   <script>
     function filterCards(btn,tag){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));btn.classList.add('active');let v=0;document.querySelectorAll('.card').forEach(card=>{const tags=card.dataset.tags||'';const show=tag==='all'||tags.includes(tag);card.style.display=show?'':'none';if(show)v++;});document.getElementById('count-label').textContent=v+' work'+(v!==1?'s':'');}
     function openLightbox(src,title,meta,status){document.getElementById('lb-img').src=src;document.getElementById('lb-title').textContent=title;document.getElementById('lb-meta').textContent=meta;const btn=document.getElementById('lb-btn');if(status==='sold'){btn.textContent='This piece is sold';btn.style.background='#aaa';btn.style.pointerEvents='none';}else{btn.textContent='Inquire about this piece';btn.style.background='';btn.style.pointerEvents='';}document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}

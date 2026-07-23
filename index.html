@@ -85,11 +85,11 @@
     .footer-links a{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;}
     .footer-links a:hover{color:var(--teal);}
     .footer-copy{font-size:11px;color:rgba(30,26,36,0.25);}
-    .lightbox{display:none;position:fixed;inset:0;background:rgba(20,18,24,0.92);z-index:999;align-items:center;justify-content:center;padding:32px;}
+    .lightbox{display:none;position:fixed;inset:0;background:#000;z-index:999;align-items:center;justify-content:center;padding:12px;}
     .lightbox.open{display:flex;}
     .lightbox-inner{position:relative;max-width:860px;width:100%;background:var(--cream);border-radius:var(--radius);overflow:hidden;}
-    .lightbox-img{width:100%;display:block;max-height:70vh;object-fit:contain;background:var(--stone);}
-    .lightbox-body{padding:20px 24px 24px;display:flex;justify-content:space-between;align-items:center;}
+    .lightbox-img{width:100%;display:block;max-height:92vh;object-fit:contain;background:#000;}
+
     .lightbox-title{font-family:'Cormorant Garamond',serif;font-size:24px;}
     .lightbox-meta{font-size:12px;color:var(--mid);margin-top:4px;}
     .lightbox-close{position:absolute;top:14px;right:14px;width:32px;height:32px;background:rgba(245,241,234,0.9);border:none;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);}
@@ -227,15 +227,11 @@
     <div class="lightbox-inner">
       <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
       <img class="lightbox-img" id="lb-img" src="" alt="">
-      <div class="lightbox-body">
-        <div><div class="lightbox-title" id="lb-title"></div><div class="lightbox-meta" id="lb-meta"></div></div>
-        <a id="lb-btn" href="mailto:shenlongart369@gmail.com" class="lightbox-inquire">Inquire about this piece</a>
-      </div>
     </div>
   </div>
   <script>
     function filterCards(btn,tag){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));btn.classList.add('active');let v=0;document.querySelectorAll('.card').forEach(card=>{const tags=card.dataset.tags||'';const show=tag==='all'||tags.includes(tag);card.style.display=show?'':'none';if(show)v++;});document.getElementById('count-label').textContent=v+' work'+(v!==1?'s':'');}
-    function openLightbox(src,title,meta,status){document.getElementById('lb-img').src=src;document.getElementById('lb-title').textContent=title;document.getElementById('lb-meta').textContent=meta;const btn=document.getElementById('lb-btn');if(status==='sold'){btn.textContent='This piece is sold';btn.style.background='#aaa';btn.style.pointerEvents='none';}else{btn.textContent='Inquire about this piece';btn.style.background='';btn.style.pointerEvents='';}document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+    function openLightbox(src,title,meta,status){document.getElementById('lb-img').src=src;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
     function closeLightboxOnBg(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
